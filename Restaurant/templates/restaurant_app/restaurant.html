@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    RestuarantName: <input type="text" name="restuarant_name" placeholder="enter name"><br>
+    street_name: <input type="text" name="street_name" placeholder="street name"><br>
+    number: <input type="text" name="number" placeholder="enter number"><br>
+    city:<input type="text" name="city" placeholder="enter city"><br>
+    Zipcode:<input type="text" name="Zipcode" placeholder="enter Zipcode"><br>
+    state:<input type="text" name="state" placeholder="enter state"><br>
+    country:<input type="text" name="country" placeholder="enter country"><br>
+    telephone_no:<input type="text" name="telephone_no" placeholder="enter telephone_no"><br>
+    <input type="submit" name="submit">
+</form>
+</body>
+</html>

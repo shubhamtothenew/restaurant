@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends 'restaurant_app/base.html'%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+{% block content %}
+<body>
+<div class="container-fluid">
+<h1>Dishes</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for dish in dishes %}
+      <tr>
+        <td><a href="/review/{{dish.id}}">{{dish.name}}</a></td>
+        <td>{{dish.description}}</td>
+        <td>{{dish.price}}</td>
+        <td><img height="150px" width="150px" src="{{dish.image.url}}" class="img-rounded"></td>
+        <td><a href="/delete_dish/{{res_id}}/{{dish.id}}">delete</a> /<a href="/update_dish/{{dish.id}}">update</a></td>
+      </tr>
+    {% endfor%}
+    </tbody>
+  </table>
+        <h1>Add new Dish</h1>
+
+ <form class="form-horizontal" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Dish Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Dish Name" name="dishName">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Description:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Description" name="description">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Price:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Price" name="price">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Image:</label>
+      <div class="col-sm-10">
+        <input type="file" placeholder="Enter Image" name="image">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+</body>
+{% endblock %}
+</html>

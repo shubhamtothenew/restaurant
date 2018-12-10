@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    RestuarantName: <input type="text" name="restuarant_name" placeholder="enter name" value="{{resturant.name}}"><br>
+    street_name: <input type="text" name="street_name" placeholder="street name" value="{{resturant.street}}"><br>
+    number: <input type="text" name="number" placeholder="enter number" value="{{resturant.number}}"><br>
+    city:<input type="text" name="city" placeholder="enter city" value="{{resturant.city}}"><br>
+    Zipcode:<input type="text" name="Zipcode" placeholder="enter Zipcode" value="{{resturant.zipcode}}"><br>
+    state:<input type="text" name="state" placeholder="enter state" value="{{resturant.state_or_province}}"><br>
+    country:<input type="text" name="country" placeholder="enter country" value="{{resturant.county}}"><br>
+    telephone_no:<input type="text" name="telephone_no" placeholder="enter telephone_no" value="{{resturant.telephone}}"><br>
+    <input type="submit" name="submit">
+</form>
+</body>
+</html>

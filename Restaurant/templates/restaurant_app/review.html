@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reviews</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+<h1>REVIEWS</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for review in reviews %}
+      <tr>
+        <td><a href="#">{{review.user}}</a></td>
+        <td> {{review.rating}}(star)</td>
+        <td>"{{review.comment}}"</td>
+        <td><a href="/delete_review/{{dish_id}}/{{review.id}}">delete</a> /<a href="/update_review/{{dish_id}}/{{review.id}}">update</a></td>
+      </tr>
+    {% endfor%}
+    </tbody>
+  </table>
+<h1>ADD REVIEWS</h1>
+ <form class="form-horizontal" method="post" >
+        {% csrf_token %}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Select Choice:</label>
+      <div class="col-sm-10">
+        <select name="choices">
+            <option value="1">one</option>
+            <option value="2">two</option>
+            <option value="3">three</option>
+            <option value="4">four</option>
+            <option value="5">five</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Comment:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Comment" name="comment">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+
+  </form>
+</body>
+</html>
+
+

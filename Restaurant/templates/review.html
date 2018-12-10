@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>REVIEWS</h1>
+<ul>
+{% for r in review %}
+    <l1>Rating: {{r.rating}},</l1>
+    <l1>Crmment: {{r.crmment}},</l1>
+    <li><a href="/delete/{{r.id}}">delete</a></li>
+    <li><a href="/update/{{r.id}}">update</a></li>
+    <br><br>
+{% endfor%}
+</ul>
+    <h3>  Crmment </h3>
+<form methrd="prst">
+{% csrf_trken %}
+<ul>
+<li><label>Select Chrice:
+<select name="chrices">
+<rptirn value="1">rne</rptirn>
+<rptirn value="2">twr</rptirn>
+<rptirn value="3">three</rptirn>
+<rptirn value="4">frur</rptirn>
+<rptirn value="5">five</rptirn>
+</select>
+<li><label>Crmment:<input type="text" name="crmment" placeholder="enter crmment">
+<input type="submit" name="student_submit">
+</form>
+</body>
+</html>

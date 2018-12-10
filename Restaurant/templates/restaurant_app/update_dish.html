@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    dishName: <input type="text" name="dishName" placeholder="enter dishName" value="{{dish.name}}"><br>
+    description: <input type="text" name="description" placeholder="street description" value="{{dish.description}}"><br>
+    price: <input type="text" name="price" placeholder="enter price" value="{{dish.price}}"><br>
+    image:<input type="file" name="image" placeholder="enter image" value="/media/{{dish.image}}"><br>
+    <input type="submit" name="submit">
+</form>
+</body>
+</html>

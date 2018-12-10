@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% extends 'restaurant_app/base.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESTAURANT</title>
+</head>
+{% block content %}
+<body>
+<div class="container-fluid">
+<h1>RESTAURANTS</h1>
+   <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Street</th>
+        <th>Number</th>
+        <th>City</th>
+        <th>Zipcode</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Telephone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for resturant in resturants %}
+      <tr>
+        <!--<td><a href="/dish/{{resturant.id}}">{{resturant.name}}</a></td>-->
+        <td><a href="{% url 'dish' resturant.id %}">{{resturant.name}}</a></td>
+        <td>{{resturant.street}}</td>
+        <td>{{resturant.number}}</td>
+        <td>{{resturant.city}}</td>
+        <td>{{resturant.zipcode}}</td>
+        <td>{{resturant.state_or_province}}</td>
+        <td>{{resturant.county}}</td>
+        <td>{{resturant.telephone}}</td>
+        <td><a href="/delete_resturant/{{resturant.id}}" class="btn btn-danger">delete</a> / <a href="/update_resturant/{{resturant.id}}" class="btn btn-primary">update</a></td>
+      </tr>
+    {% endfor%}
+    </tbody>
+  </table>
+
+    <h1>Add New Restaurant</h1>
+    <form class="form-horizontal" method="post">
+        {% csrf_token %}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Restaurant Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Restuarant Name" name="restuarant_name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Street Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Street Name" name="street_name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Number:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Number" name="number">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">City Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter city Name" name="city">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Zipcode:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Zipcode" name="Zipcode">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">State:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter State" name="state">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Country:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Country" name="country">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">Telephone No:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter Telephone No" name="telephone_no">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+</body>
+{% endblock %}
+</html>
